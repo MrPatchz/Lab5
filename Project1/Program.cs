@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.Threading;
 
 namespace Project1
 {
@@ -6,11 +8,13 @@ namespace Project1
     {
         static void Main(string[] args)
         {
+            int count = 0;
             System.Random random = new System.Random();
             int num = random.Next(0,100);
             int guess = 0;
             do
             {
+                count++;
                 Console.Write("Please guess a number: ");
                 guess = int.Parse(Console.ReadLine());
                 if (guess < num)
@@ -23,7 +27,7 @@ namespace Project1
                 }
                 else
                 {
-                    Console.WriteLine("You guessed Correct! Good Job!");
+                    Console.WriteLine("You guessed Correct! Good Job! It took you " + count + " guesses"); ;
                 }
             } while (guess != num);
 
